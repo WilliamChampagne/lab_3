@@ -1,4 +1,6 @@
 import random
+
+## Argent du joueur. Si cette valeur tombe à 0, le joueur perd et recommence le jeu.
 balance = 1000
 
 def supergambler():
@@ -15,6 +17,7 @@ def supergambler():
     print("Your balance: " + str(balance))
 
     ## Choosing your bet and checking if you have enough
+    ## Bet est la mise que le jouer débourse pour participer au jeu. Si le joueur perde le jeu, il perd l'entièreter de sa mise.
     bet = int(input("\nHow much are you betting?: "))
     if bet > balance:
         print("You do not have enough money for that bet.\n")
@@ -38,8 +41,11 @@ def supergambler():
     ## Debug print to see the value of rn1 and rn2 (remove double comment markers to print debug)
     ## print("rn1: " + str(rn1), "rn2: " + str(rn2))
 
-    ## Gameplay loop
-    ## Il y a 3 conditions pour gagner le jeu. Les conditions sont basés sur les numéros choisie par l'utilisateur et les numéros random
+    ## - Gameplay loop -
+    ## Il y a 3 conditions pour gagner le jeu. Les conditions sont basés sur les numéros choisie par l'utilisateur et les numéros randoms.
+    ## Les numéros choisie par l'utilisateur seront comparé au nombres généré par le code, un peut comme la roue de la chance. 
+    ## Les conditions de victoires sont déterminées par des calculs mathématiques utilisant tout les numéros choisie par le joueur et le code.
+
     if n1 >= rn1 and n2 >= rn2:
         print("\nKaching! You won!")
         balance += bet*2
