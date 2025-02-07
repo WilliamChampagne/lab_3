@@ -45,7 +45,6 @@ def supergambler():
     ## Il y a 3 conditions pour gagner le jeu. Les conditions sont basés sur les numéros choisie par l'utilisateur et les numéros randoms.
     ## Les numéros choisie par l'utilisateur seront comparé au nombres généré par le code, un peut comme la roue de la chance. 
     ## Les conditions de victoires sont déterminées par des calculs mathématiques utilisant tout les numéros choisie par le joueur et le code.
-
     if n1 >= rn1 and n2 >= rn2:
         print("\nKaching! You won!")
         balance += bet*2
