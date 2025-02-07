@@ -2,14 +2,19 @@ import random
 
 ## Argent du joueur. Si cette valeur tombe à 0, le joueur perd et recommence le jeu.
 balance = 1000
+## Round du jeu. Augmente la difficulté du jeu.
+round = 1
 
 def supergambler():
-    global balance
+    global balance, round
+
+    print("Round: " + str(round))
 
     ## Loss condition check
     if balance <= 0:
         print("You are out of money. You lost. Starting new game...\n")
         balance = 1000
+        round =  1
         supergambler()
     else:
         pass
@@ -48,19 +53,26 @@ def supergambler():
     if n1 >= rn1 and n2 >= rn2:
         print("\nKaching! You won!")
         balance += bet*2
+        print("You have won: " + str(bet*2) + "$")
+        round += 1
         supergambler()
     elif ((n1+n2)%rn2) > rn1:
         print((n1+n2)%rn2)
         print("\nKaching! You won!")
         balance += bet*2
+        print("You have won: " + str(bet*2) + "$")
+        round += 1
         supergambler()
     elif n1 == rn2 or n2 == rn1:
         print("\nKaching! You won!")
         balance += bet*2
+        print("You have won: " + str(bet*2) + "$")
+        round += 1
         supergambler()
     else:
         print("\nYou lost. Pay up.")
-        balance -= bet
+        balance -= bet+(bet*((round/10))-10)
+        print("You have lost: " + str(bet+(bet*((round/10))-10)) + "$")
         supergambler()
 
 supergambler()
